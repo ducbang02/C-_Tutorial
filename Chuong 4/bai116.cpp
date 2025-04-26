@@ -1,12 +1,21 @@
+// bai116.cpp
+// Viết chương trình nhập n và tính tổng S(n) = 1 + 2 + 3 + ... + n.
 
 #include <iostream>
 using namespace std;
 
-// Bài 116: Viết chương trình nhập vào một chuỗi và đếm số ký tự trong chuỗi
+int tinhTong(int n) {
+    int tong = 0;
+    for (int i = 1; i <= n; i++) {
+        tong += i;
+    }
+    return tong;
+}
+
 int main() {
-    string s;
-    cout << "Nhap chuoi: ";
-    getline(cin, s);
-    cout << "So ky tu trong chuoi: " << s.length() << endl;
+    int n;
+    cout << "Nhap n: ";
+    cin >> n;
+    cout << "Tong S(n) = " << tinhTong(n) << endl;
     return 0;
 }

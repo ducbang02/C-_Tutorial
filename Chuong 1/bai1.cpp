@@ -4,7 +4,7 @@ using namespace std;
 int main()
 {
     int n, S = 0;
-    cout << "Nhap n: ";
+    cout << "Nhâp n: ";
     cin >> n;
     for (int i = 1; i <= n; ++i)
         S += i;

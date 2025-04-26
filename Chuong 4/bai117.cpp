@@ -1,22 +1,25 @@
+// bai117.cpp
+// Viết chương trình nhập n và tính tổng S(n) = x + x^2 + x^3 + ... + x^n.
 
 #include <iostream>
+#include <cmath>
 using namespace std;
 
-// Bài 117: Viết chương trình kiểm tra chuỗi có phải là palindrome
-int main() {
-    string s;
-    cout << "Nhap chuoi: ";
-    getline(cin, s);
-    bool isPalindrome = true;
-    for (int i = 0; i < s.length() / 2; i++) {
-        if (s[i] != s[s.length() - 1 - i]) {
-            isPalindrome = false;
-            break;
-        }
+double tinhTongLuyThua(double x, int n) {
+    double tong = 0;
+    for (int i = 1; i <= n; i++) {
+        tong += pow(x, i);
     }
-    if (isPalindrome)
-        cout << "Chuoi la palindrome" << endl;
-    else
-        cout << "Chuoi khong la palindrome" << endl;
+    return tong;
+}
+
+int main() {
+    double x;
+    int n;
+    cout << "Nhap x: ";
+    cin >> x;
+    cout << "Nhap n: ";
+    cin >> n;
+    cout << "Tong S(n) = " << tinhTongLuyThua(x, n) << endl;
     return 0;
 }

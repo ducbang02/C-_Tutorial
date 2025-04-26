@@ -1,16 +1,23 @@
+// bai120.cpp
+// Liệt kê tất cả các số chính phương nhỏ hơn n.
 
 #include <iostream>
-#include <cctype>
+#include <cmath>
 using namespace std;
 
-// Bài 120: Đổi tất cả ký tự hoa trong chuỗi sang chữ thường
+bool laChinhPhuong(int n) {
+    int can = sqrt(n);
+    return can * can == n;
+}
+
 int main() {
-    string s;
-    cout << "Nhap chuoi: ";
-    getline(cin, s);
-    for (char &c : s) {
-        c = tolower(c);
+    int n;
+    cout << "Nhap n: ";
+    cin >> n;
+    cout << "Cac so chinh phuong nho hon " << n << ": ";
+    for (int i = 1; i < n; i++) {
+        if (laChinhPhuong(i)) cout << i << " ";
     }
-    cout << "Chuoi in thuong: " << s << endl;
+    cout << endl;
     return 0;
 }
