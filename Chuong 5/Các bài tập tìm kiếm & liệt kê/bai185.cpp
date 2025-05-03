@@ -3,26 +3,32 @@
 #include <cmath>
 using namespace std;
 
-bool isPerfectSquare(int n) {
+bool isPerfectSquare(int n)
+{
     int root = sqrt(n);
     return root * root == n;
 }
 
-void listSquarePositions(int arr[], int n) {
+void listSquarePositions(int arr[], int n)
+{
     cout << "Vi tri cac so chinh phuong: ";
-    for (int i = 0; i < n; i++) {
-        if (isPerfectSquare(arr[i])) cout << i << " ";
+    for (int i = 0; i < n; i++)
+    {
+        if (isPerfectSquare(arr[i]))
+            cout << i << " ";
     }
     cout << endl;
 }
 
-int main() {
+int main()
+{
     int n;
     cout << "Nhap so luong phan tu: ";
     cin >> n;
     int arr[n];
     cout << "Nhap cac phan tu: ";
-    for (int i = 0; i < n; i++) cin >> arr[i];
+    for (int i = 0; i < n; i++)
+        cin >> arr[i];
     listSquarePositions(arr, n);
     return 0;
 }
