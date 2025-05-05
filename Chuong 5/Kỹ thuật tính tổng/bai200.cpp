@@ -1,36 +1,21 @@
-// Bài 200: Liệt kê các giá trị cực tiểu trong mảng số thực
+// Bài 200: Tính tổng các phần tử trong mảng (tonggiatri)
 #include <iostream>
 using namespace std;
 
-void listLocalMinima(double arr[], int n)
+float TongGiaTri(float arr[], int n)
 {
-    cout << "Cac gia tri cuc tieu: ";
-    if (n == 1)
+    float tong = 0;
+    for (int i = 0; i < n; i++)
     {
-        cout << arr[0] << endl;
-        return;
+        tong += arr[i];
     }
-    if (arr[0] < arr[1])
-        cout << arr[0] << " ";
-    for (int i = 1; i < n - 1; i++)
-    {
-        if (arr[i] < arr[i - 1] && arr[i] < arr[i + 1])
-            cout << arr[i] << " ";
-    }
-    if (arr[n - 1] < arr[n - 2])
-        cout << arr[n - 1];
-    cout << endl;
+    return tong;
 }
 
 int main()
 {
-    int n;
-    cout << "Nhap so luong phan tu: ";
-    cin >> n;
-    double arr[n];
-    cout << "Nhap cac phan tu: ";
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    listLocalMinima(arr, n);
+    int n = 6;
+    float arr[n] = {2.5, 5.6, 7, 9.2, 9.3, 12};
+    cout << "Tong gia tri trong mang la: " << TongGiaTri(arr, n);
     return 0;
 }

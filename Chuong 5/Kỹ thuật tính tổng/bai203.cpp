@@ -1,41 +1,32 @@
-// Bài 203: Liệt kê các số Fibonacci trong mảng số nguyên
+// Bai203. Tính tổng các giá trị có chữ số hàng chục là chữ số 5 có trong mảng
+// các số nguyên (tongchuc).
 #include <iostream>
 using namespace std;
 
-bool isFibonacci(int n)
+bool KTHangChuc5(int n)
 {
-    if (n < 0)
-        return false;
-    int a = 0, b = 1;
-    while (b < n)
-    {
-        int temp = b;
-        b = a + b;
-        a = temp;
-    }
-    return (n == b || n == 0 || n == 1);
+    if ((n / 10) % 10 == 5)
+        return true;
+    return false;
 }
 
-void listFibonacciNumbers(int arr[], int n)
+int Tong(int arr[], int n)
 {
-    cout << "Cac so Fibonacci trong mang: ";
+    int tong = 0;
     for (int i = 0; i < n; i++)
     {
-        if (isFibonacci(arr[i]))
-            cout << arr[i] << " ";
+        if (KTHangChuc5(arr[i]))
+        {
+            tong += arr[i];
+        }
     }
-    cout << endl;
+    return tong;
 }
 
 int main()
 {
-    int n;
-    cout << "Nhap so luong phan tu: ";
-    cin >> n;
-    int arr[n];
-    cout << "Nhap cac phan tu: ";
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    listFibonacciNumbers(arr, n);
+    int n = 6;
+    int arr[n] = {55, 66, 55, 300, 3, 9};
+    cout << "Tong gia tri co hang chuc bang 5 la: " << Tong(arr, n);
     return 0;
 }

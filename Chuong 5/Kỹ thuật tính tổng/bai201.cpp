@@ -1,30 +1,24 @@
-// Bài 201: Liệt kê các giá trị lẻ có ít nhất một lân cận lẻ
+// Bài 201: Tính tổng các phần tử duong trong mảng so thuc (tonggiatri)
 #include <iostream>
 using namespace std;
 
-void listOddWithOddNeighbor(int arr[], int n)
+float TongSoDuong(float arr[], int n)
 {
-    cout << "Cac gia tri le co it nhat 1 lan can le: ";
+    float tong = 0;
     for (int i = 0; i < n; i++)
     {
-        if (arr[i] % 2 != 0)
+        if (arr[i] > 0)
         {
-            if ((i > 0 && arr[i - 1] % 2 != 0) || (i < n - 1 && arr[i + 1] % 2 != 0))
-                cout << arr[i] << " ";
+            tong += arr[i];
         }
     }
-    cout << endl;
+    return tong;
 }
 
 int main()
 {
-    int n;
-    cout << "Nhap so luong phan tu: ";
-    cin >> n;
-    int arr[n];
-    cout << "Nhap cac phan tu: ";
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    listOddWithOddNeighbor(arr, n);
+    int n = 6;
+    float arr[n] = {2.5, -5.6, -7, -9.2, -9.3, 12};
+    cout << "Tong gia tri duong trong mang la: " << TongSoDuong(arr, n);
     return 0;
 }

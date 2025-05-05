@@ -1,42 +1,42 @@
-// Bài 202: Liệt kê các số nguyên tố có ít nhất một lân cận cũng nguyên tố
+// Bài 202: Tính tổng các giá trị có chữ số đầu tiên là chữ số lẻ
+// trong mảng một chiều các số nguyên (tongdaule).
 #include <iostream>
 using namespace std;
 
-bool isPrime(int n)
+bool KTChuSoLeDauTien(int n)
 {
-    if (n < 2)
-        return false;
-    for (int i = 2; i * i <= n; i++)
+    int t = n;
+    while (t > 0)
     {
-        if (n % i == 0)
-            return false;
+        if (t / 10 == 0)
+        {
+            if (t % 2 == 1)
+            {
+                return true;
+            }
+        }
+        t /= 10;
     }
-    return true;
+    return false;
 }
 
-void listPrimeWithPrimeNeighbor(int arr[], int n)
+int Tong(int arr[], int n)
 {
-    cout << "Cac so nguyen to co lan can cung nguyen to: ";
+    int tong = 0;
     for (int i = 0; i < n; i++)
     {
-        if (isPrime(arr[i]))
+        if (KTChuSoLeDauTien(arr[i]))
         {
-            if ((i > 0 && isPrime(arr[i - 1])) || (i < n - 1 && isPrime(arr[i + 1])))
-                cout << arr[i] << " ";
+            tong += arr[i];
         }
     }
-    cout << endl;
+    return tong;
 }
 
 int main()
 {
-    int n;
-    cout << "Nhap so luong phan tu: ";
-    cin >> n;
-    int arr[n];
-    cout << "Nhap cac phan tu: ";
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    listPrimeWithPrimeNeighbor(arr, n);
+    int n = 6;
+    int arr[n] = {5, 66, 52, 300, 3, 9};
+    cout << "Tong gia tri co chua so dau le trong mang la: " << Tong(arr, n);
     return 0;
 }

@@ -1,27 +1,25 @@
-// Bài 204: Liệt kê các giá trị chia hết cho 7 nhưng không chia hết cho 3
+// Bai204. Tính tổng các giá trị lớn hơn giá trị đứng liền trước nó trong mảng
+// một chiều các số thực.
 #include <iostream>
 using namespace std;
 
-void listDivisibleBy7Not3(int arr[], int n)
+int Tong(int arr[], int n)
 {
-    cout << "Cac gia tri chia het cho 7 nhung khong chia het cho 3: ";
-    for (int i = 0; i < n; i++)
+    int tong = 0;
+    for (int i = 0; i < n - 1; i++)
     {
-        if (arr[i] % 7 == 0 && arr[i] % 3 != 0)
-            cout << arr[i] << " ";
+        if (arr[i + 1] > arr[i])
+        {
+            tong += arr[i + 1];
+        }
     }
-    cout << endl;
+    return tong;
 }
 
 int main()
 {
-    int n;
-    cout << "Nhap so luong phan tu: ";
-    cin >> n;
-    int arr[n];
-    cout << "Nhap cac phan tu: ";
-    for (int i = 0; i < n; i++)
-        cin >> arr[i];
-    listDivisibleBy7Not3(arr, n);
+    int n = 6;
+    int arr[n] = {55, 66, 55, 300, 3, 9};
+    cout << "Tong gia tri nhung phan tu lon hon so lien truoc la: " << Tong(arr, n);
     return 0;
 }
