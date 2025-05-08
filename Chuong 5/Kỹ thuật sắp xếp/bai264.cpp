@@ -50,16 +50,12 @@ int main()
 {
     int n = 4;
     int m = 5;
-    int k = n + m;
-    // float array[n];
+    int k;
     float arrayA[n] = {6.7, 9.5, 10.4, 56.7};
     float arrayB[m] = {15, 22, 58, 99, 78};
     float arrayC[k];
-    // NhapMang(array, n);
     TronMang(arrayA, n, arrayB, m, arrayC, k);
     XuatMang(arrayC, k);
-
-    // XuatMang(arrayA, n);
 
     return 0;
 }
